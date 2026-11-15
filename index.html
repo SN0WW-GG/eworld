@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EWorld | E-Bike & Mini-Moto Parts Marketplace</title>
+  <style>
+    :root {
+      --bg: #0b0c0e;
+      --card: #15171c;
+      --border: #262a33;
+      --accent: #00e5ff;
+      --accent-dark: #00b8cc;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.5; }
+    
+    /* Navbar */
+    header {
+      background: #101216;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); font-weight: 800; font-size: 1.4rem; letter-spacing: 1px; }
+    .brand img { height: 42px; width: auto; object-fit: contain; }
+    nav { display: flex; gap: 20px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.2s; }
+    nav a:hover, nav a.active { color: var(--text); }
+    .btn-sell {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .btn-sell:hover { background: var(--accent-dark); }
 
+    /* Hero Banner */
+    .hero {
+      text-align: center;
+      padding: 50px 20px 35px;
+      background: radial-gradient(circle at top, #1a202c 0%, var(--bg) 70%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { color: var(--muted); max-width: 600px; margin: 0 auto 24px; font-size: 1.05rem; }
+
+    /* Search & Filter Bar */
+    .controls {
+      max-width: 1150px;
+      margin: 25px auto 15px;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 240px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      background: var(--card);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+    /* Product Grid */
+    .grid {
+      max-width: 1150px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+      position: relative;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .card-img {
+      width: 100%;
+      height: 190px;
+      background: #1e222b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      object-fit: cover;
+    }
+    .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-meta { font-size: 0.78rem; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+    .card-title { font-size: 1.08rem; font-weight: 700; margin-bottom: 6px; }
+    .card-seller { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+    .card-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .price { font-size: 1.25rem; font-weight: 800; }
+    .buy-btn {
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: 0.2s;
+    }
+    .buy-btn:hover { background: var(--accent); }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="EWorld Logo" onerror="this.style.display='none'">
+      <span>EWORLD</span>
+    </a>
+    <nav>
+      <a href="index.html" class="active">Shop Parts</a>
+      <a href="policies.html">Buyer Protection</a>
+      <a href="sell.html" class="btn-sell">+ Sell a Part</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Peer-to-Peer <span>E-Moto</span> Parts</h1>
+    <p>Buy and sell custom 3D prints, wheels, wraps, batteries, and upgrades from riders across the community.</p>
+  </section>
+
+  <div class="controls">
+    <input type="text" id="searchInput" class="search-box" placeholder="Search parts, bikes (Surron, Tuttio, Razor)..." onkeyup="filterParts()">
+    <div class="filters">
+      <button class="filter-btn active" onclick="setCategory('all', this)">All</button>
+      <button class="filter-btn" onclick="setCategory('3d-prints', this)">3D Prints</button>
+      <button class="filter-btn" onclick="setCategory('wheels', this)">Wheels & Tires</button>
+      <button class="filter-btn" onclick="setCategory('wraps', this)">Wraps & Plates</button>
+      <button class="filter-btn" onclick="setCategory('electronics', this)">Electronics</button>
+    </div>
+  </div>
+
+  <main class="grid" id="productGrid">
+    <!-- EXAMPLE LISTING 1 (Replace with real seller submissions) -->
+    <div class="card" data-category="3d-prints">
+      <span class="badge">Featured</span>
+      <div class="card-img">Part Photo Placeholder</div>
+      <div class="card-body">
+        <div class="card-meta">3D Prints • Brand New</div>
+        <div class="card-title">Custom Front Number Plate & Mount</div>
+        <div class="card-seller">Sold by: @SampleRider</div>
+        <div class="card-footer">
+          <span class="price">$18</span>
+          <a href="sell.html" class="buy-btn">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMPLE LISTING 2 -->
+    <div class="card" data-category="wheels">
+      <div class="card-img">Part Photo Placeholder</div>
+      <div class="card-body">
+        <div class="card-meta">Wheels & Tires • Used</div>
+        <div class="card-title">Stock Surron Light Bee Wheelset</div>
+        <div class="card-seller">Sold by: @MotoGarage</div>
+        <div class="card-footer">
+          <span class="price">$160</span>
+          <a href="sell.html" class="buy-btn">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 EWorld Marketplace • <a href="policies.html">Shipping & Returns</a> • <a href="sell.html">List Your Parts</a></p>
+  </footer>
+
+  <script>
+    let currentCategory = 'all';
+
+    function setCategory(category, btn) {
+      currentCategory = category;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterParts();
+    }
+
+    function filterParts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const matchesCat = currentCategory === 'all' || card.dataset.category === currentCategory;
+        const matchesText = card.innerText.toLowerCase().includes(query);
+        card.style.display = (matchesCat && matchesText) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
