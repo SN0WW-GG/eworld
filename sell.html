@@ -3,60 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sell a Part | EWorld Marketplace</title>
+  <title>Sell a Part | EWorld</title>
   <style>
-    :root { --bg: #0b0c0e; --card: #15171c; --border: #262a33; --accent: #00e5ff; --text: #f3f4f6; --muted: #9ca3af; }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; }
-    header { background: #101216; border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); font-weight: 800; font-size: 1.4rem; }
-    .brand img { height: 42px; width: auto; }
-    nav { display: flex; gap: 20px; align-items: center; }
-    nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-    nav a:hover, nav a.active { color: var(--text); }
-    .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-    .info-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 24px; }
-    .info-box h1 { font-size: 1.8rem; margin-bottom: 10px; }
-    .info-box h1 span { color: var(--accent); }
-    .info-box ul { margin-left: 20px; color: var(--muted); margin-top: 10px; }
-    .info-box li { margin-bottom: 6px; }
-    .form-wrap { background: #ffffff; border-radius: 10px; overflow: hidden; padding: 10px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background: #0a0a0a; color: #ffffff; line-height: 1.5; }
+    header { background: #0a0a0a; border-bottom: 1px solid #262626; padding: 16px 28px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; font-weight: 800; font-size: 1.25rem; letter-spacing: 1.5px; text-transform: uppercase; }
+    .brand img { height: 38px; width: auto; }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { color: #8c8c8c; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    nav a:hover, nav a.active { color: #ffffff; }
+    .container { max-width: 780px; margin: 40px auto; padding: 0 24px; }
+    .box { background: #141414; border: 1px solid #262626; border-radius: 3px; padding: 24px; margin-bottom: 24px; }
+    .box h1 { font-size: 1.6rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .box p { color: #8c8c8c; font-size: 0.92rem; margin-bottom: 14px; }
+    .box ul { margin-left: 18px; color: #cccccc; font-size: 0.9rem; }
+    .box li { margin-bottom: 6px; }
+    .form-frame { background: #ffffff; border: 1px solid #262626; border-radius: 3px; padding: 8px; }
     iframe { width: 100%; height: 850px; border: none; }
-    footer { text-align: center; padding: 30px 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
-    footer a { color: var(--accent); text-decoration: none; }
+    footer { border-top: 1px solid #262626; padding: 28px 24px; text-align: center; color: #737373; font-size: 0.82rem; margin-top: 50px; }
+    footer a { color: #ffffff; text-decoration: none; margin: 0 8px; }
   </style>
 </head>
 <body>
   <header>
     <a href="index.html" class="brand">
-      <img src="logo.png" alt="EWorld Logo" onerror="this.style.display='none'">
+      <img src="logo.png" alt="EWorld" onerror="this.style.display='none'">
       <span>EWORLD</span>
     </a>
     <nav>
-      <a href="index.html">Shop Parts</a>
-      <a href="policies.html">Buyer Protection</a>
-      <a href="sell.html" class="active">+ Sell a Part</a>
+      <a href="index.html">Parts</a>
+      <a href="policies.html">Policies</a>
+      <a href="sell.html" class="active">Sell a Part</a>
     </nav>
   </header>
 
   <div class="container">
-    <div class="info-box">
-      <h1>List Your Part on <span>EWorld</span></h1>
-      <p>Turn your spare e-bike parts, wheels, or custom 3D prints into cash. Listing is 100% free.</p>
+    <div class="box">
+      <h1>List a Part</h1>
+      <p>Submit your part details below. Listings are reviewed manually before going live on the storefront.</p>
       <ul>
-        <li><strong>How it works:</strong> Fill out the form below with clear photos and your price. Once approved, your part goes live on the homepage.</li>
-        <li><strong>Marketplace Fee:</strong> You only pay a <strong>10% fee</strong> when your item actually sells. No upfront costs.</li>
-        <li><strong>Fast Payouts:</strong> Once you ship the item and provide tracking, we send your payout via PayPal, Venmo, or CashApp.</li>
+        <li><strong>Listing Cost:</strong> Free to post.</li>
+        <li><strong>Commission:</strong> 10% fee deducted only after your part sells.</li>
+        <li><strong>Payouts:</strong> Sent via PayPal, Venmo, or CashApp once tracking is provided.</li>
       </ul>
     </div>
 
-    <div class="form-wrap">
+    <div class="form-frame">
       <iframe src="https://tally.so/embed/5XjJJo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" title="Submit a Part to EWorld"></iframe>
     </div>
   </div>
 
   <footer>
-    <p>© 2026 EWorld Marketplace • <a href="policies.html">Shipping & Returns</a> • <a href="index.html">Back to Shop</a></p>
+    <span>© 2026 EWorld</span>
+    <a href="index.html">Back to Parts</a>
+    <a href="policies.html">Shipping & Returns</a>
   </footer>
 </body>
 </html>
