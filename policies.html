@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buyer Protection & Policies | EWorld</title>
+  <style>
+    :root { --bg: #0b0c0e; --card: #15171c; --border: #262a33; --accent: #00e5ff; --text: #f3f4f6; --muted: #9ca3af; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { background: #101216; border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); font-weight: 800; font-size: 1.4rem; }
+    .brand img { height: 42px; width: auto; }
+    nav { display: flex; gap: 20px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    nav a:hover, nav a.active { color: var(--text); }
+    .btn-sell { background: var(--accent); color: #000 !important; padding: 8px 16px; border-radius: 6px; font-weight: 700; }
+    .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    .policy-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin-bottom: 20px; }
+    h1 { font-size: 2rem; margin-bottom: 20px; }
+    h1 span { color: var(--accent); }
+    h2 { font-size: 1.2rem; color: var(--accent); margin-bottom: 8px; }
+    p { color: var(--muted); margin-bottom: 16px; }
+    footer { text-align: center; padding: 30px 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="EWorld Logo" onerror="this.style.display='none'">
+      <span>EWORLD</span>
+    </a>
+    <nav>
+      <a href="index.html">Shop Parts</a>
+      <a href="policies.html" class="active">Buyer Protection</a>
+      <a href="sell.html" class="btn-sell">+ Sell a Part</a>
+    </nav>
+  </header>
 
+  <div class="container">
+    <h1>Buyer Protection & <span>Policies</span></h1>
+    <div class="policy-card">
+      <h2>1. Safe Checkout</h2>
+      <p>All payments on EWorld are processed securely through encrypted Stripe Checkout links. EWorld never sees or stores your credit card details.</p>
+
+      <h2>2. Shipping & Tracking</h2>
+      <p>Sellers are required to ship orders within 3 business days of purchase and provide a valid tracking number. Payouts are held until tracking is verified.</p>
+
+      <h2>3. Returns & Refunds</h2>
+      <p>If an item never arrives, arrives damaged, or does not match the listing description, contact us within 48 hours of delivery with photos for a full refund.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 EWorld Marketplace • <a href="index.html">Back to Shop</a> • <a href="sell.html">List Your Parts</a></p>
+  </footer>
+</body>
+</html>
